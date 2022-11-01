@@ -7,7 +7,7 @@ import { MODULE } from './_module.mjs';
 import './_settings.mjs';
 
 // DEFINE MODULE CLASS
-export class CORE {
+export default class CORE {
 
 	static installAPI = () => {
 

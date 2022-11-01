@@ -1,0 +1,38 @@
+/* ADJUST SCENE BROWSER WIDTH */
+body:has(#sidebar section.chat-sidebar:not(.active)) #ui-top.offset {
+  margin-right: calc(var(--sidebar-width) * var(--always-chat-inactive-scale));
+}
+
+#sidebar section.chat-sidebar:not(.active) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  scale: var(--always-chat-inactive-scale);
+  right: calc(var(--always-chat-position) + 8px);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: var(--sidebar-width);
+  z-index: -1;
+}
+#sidebar section.chat-sidebar:not(.active):hover {
+  scale: 1;
+}
+#sidebar section.chat-sidebar:not(.active) > *:not(#chat-log) {
+  display: none;
+}
+#sidebar section.chat-sidebar:not(.active) #chat-log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  overflow: hidden;
+}
+#sidebar section.chat-sidebar:not(.active) #chat-log li {
+  display: none;
+}

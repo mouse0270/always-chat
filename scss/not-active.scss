@@ -1,0 +1,14 @@
+@import '_core';
+
+/* ADJUST SCENE BROWSER WIDTH */
+body:has(#sidebar section.chat-sidebar:not(.active)) {
+	#ui-top.offset {
+		margin-right: calc(var(--sidebar-width) * var(--always-chat-inactive-scale));
+	}
+}
+
+#sidebar { 
+	section.chat-sidebar:not(.active) {
+		@include alwaysChat();
+	}
+}

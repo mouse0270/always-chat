@@ -14,9 +14,9 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">MODULE-TITLE</h3>
+  <h3 align="center">Always Chat</h3>
 
-  <p align="center">MODULE-DESCRIPTION</p>
+  <p align="center">A simple module that makes it so that the most recent chat messages are always visible even if you are on another tab or if chat is collapsed.</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->

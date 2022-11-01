@@ -1,7 +1,7 @@
 {
-	"id": "module-template",
-	"title": "MODULE TITLE",
-	"description": "MODULE DESCRIPTION",
+	"id": "always-chat",
+	"title": "Always Chat",
+	"description": "A simple module that makes it so that the most recent chat messages are always visible even if you are on another tab or if chat is collapsed.",
 	"version": "1.0.0",
 	"compatibility": {
 		"minimum": 10,

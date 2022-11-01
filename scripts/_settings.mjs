@@ -3,5 +3,107 @@ import { MODULE } from './_module.mjs';
 
 // FOUNDRY HOOKS -> SETUP
 Hooks.once('setup', async () => {
+	const adjustDisplayedMessages = (value) => {
+		if (value == 0) value = 999;
+		let styles = [];
+		if (MODULE.setting('showChatWhenNotActive')) {
+			styles.push(`#sidebar section.chat-sidebar:not(.active) #chat-log li:nth-last-of-type(-n+${value}) {
+				animation: alwaysChatAnimation 3s ease-in-out 1;
+				display: -ms-flexbox;
+				display: flex;
+				flex-direction: column;
+				opacity: var(--always-chat-inactive-opacity);
+				pointer-events: all;
+				scale: 1;
+				transform-origin: right center;
+			}`);
+			styles.push(`#sidebar section.chat-sidebar:not(.active) #chat-log li:nth-last-of-type(-n+${value}):hover {
+				opacity: 1;
+			}`);
+		}
+		if (MODULE.setting('showChatWhenCollapsed')) {
+			styles.push(`#sidebar.collapsed section.chat-sidebar #chat-log li:nth-last-of-type(-n+${value}) {
+				animation: alwaysChatAnimation 3s ease-in-out 1;
+				display: -ms-flexbox;
+				display: flex;
+				flex-direction: column;
+				opacity: var(--always-chat-inactive-opacity);
+				pointer-events: all;
+				scale: 1;
+				transform-origin: right center;
+			}`);
+			styles.push(`#sidebar.collapsed section.chat-sidebar #chat-log li:nth-last-of-type(-n+${value}):hover {
+				opacity: 1;
+			}`);
+		}
 
+		document.querySelector(`head style[name="${MODULE.ID}"]`)?.remove() ?? false;
+		document.querySelector('head').insertAdjacentHTML('beforeend', `<style name="${MODULE.ID}">${styles.join('\n')}</style>`);
+	}
+
+	const adjustCSSVariables = (value) => {
+		document.querySelector(`head style[name="${MODULE.ID}-css-vars"]`)?.remove() ?? false;
+		document.querySelector('head').insertAdjacentHTML('beforeend', `<style name="${MODULE.ID}-css-vars">
+			:root{
+				--always-chat-inactive-scale: ${MODULE.setting('inactiveScale')};
+				--always-chat-inactive-opacity: ${MODULE.setting('inactiveOpacity')};
+			}
+		</style>`);
+	}
+
+	const toggleStyleSheet = (value, stylesheet) => {
+		const primaryStyleSheet = document.querySelector(`head link[href^="modules/${MODULE.ID}/"]`);
+
+		if (value) {
+			if (document.querySelector(`head link[name="${MODULE.ID}-${stylesheet}"]`) ?? false) return;
+			primaryStyleSheet.insertAdjacentHTML('afterend', `<link name="${MODULE.ID}-${stylesheet}" href="modules/${MODULE.ID}/styles/${stylesheet}.css" rel="stylesheet" type="text/css" media="all">`)
+		}else{
+			document.querySelector(`head link[name="${MODULE.ID}-${stylesheet}"]`)?.remove() ?? false
+		}
+	}
+
+	MODULE.setting('register', 'showChatWhenNotActive', {
+		type: Boolean,
+		default: true,
+		scope: 'client',
+		onChange: (value) => toggleStyleSheet(value, 'not-active')
+	});
+	MODULE.setting('register', 'showChatWhenCollapsed', {
+		type: Boolean,
+		default: true,
+		scope: 'client',
+		onChange: (value) => toggleStyleSheet(value, 'is-collapsed')
+	});
+	MODULE.setting('register', 'numberOfMessagesToDisplay', {
+		type: Number,
+		default: 3,
+		scope: 'client',
+		range: {
+			min: 0, max: 10, step: 1
+		},
+		onChange: adjustDisplayedMessages
+	})
+	MODULE.setting('register', 'inactiveScale', {
+		type: Number,
+		default: 0.6,
+		scope: 'client',
+		range: {
+			min: 0.1, max: 1, step: 0.01
+		},
+		onChange: adjustCSSVariables
+	});
+	MODULE.setting('register', 'inactiveOpacity', {
+		type: Number,
+		default: 0.1,
+		scope: 'client',
+		range: {
+			min: 0.1, max: 1, step: 0.01
+		},
+		onChange: adjustCSSVariables
+	});
+
+	toggleStyleSheet(MODULE.setting('showChatWhenNotActive'), 'not-active');
+	toggleStyleSheet(MODULE.setting('showChatWhenCollapsed'), 'is-collapsed');
+	adjustDisplayedMessages(MODULE.setting('numberOfMessagesToDisplay'));
+	adjustCSSVariables();
 });

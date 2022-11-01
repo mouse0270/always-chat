@@ -1,0 +1,7 @@
+@import '_core';
+
+#sidebar {
+	&.collapsed section.chat-sidebar {
+		@include alwaysChat();
+	}
+}

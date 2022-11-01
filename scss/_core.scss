@@ -1,0 +1,28 @@
+@mixin alwaysChat() {
+	display: flex;
+	position: absolute;
+	scale: var(--always-chat-inactive-scale);
+	right: calc(var(--always-chat-position) + 8px);
+	transform-origin: top right;
+	transition: all 0.2s ease-in-out;
+	width: var(--sidebar-width);
+	z-index: -1;
+
+	&:hover {
+		scale: 1;
+	}
+
+	& > *:not(#chat-log) {
+		display: none;
+	}
+
+	#chat-log {
+		display: flex;
+		flex-direction: column-reverse;
+		overflow: hidden;
+
+		li {
+			display: none;
+		}
+	}
+}

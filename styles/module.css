@@ -1,0 +1,44 @@
+:root {
+  --always-chat-inactive-scale: 0.6;
+  --always-chat-inactive-opacity: 0.1;
+  --always-chat-position: var(--sidebar-width);
+}
+
+@-webkit-keyframes alwaysChatAnimation {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  10% {
+    opacity: 1;
+    scale: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: var(--always-chat-inactive-opacity);
+    scale: 1;
+  }
+}
+
+@keyframes alwaysChatAnimation {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  10% {
+    opacity: 1;
+    scale: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: var(--always-chat-inactive-opacity);
+    scale: 1;
+  }
+}
+#sidebar.collapsed {
+  --always-chat-position: 30px;
+}
