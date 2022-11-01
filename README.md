@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mouse0270/mouses-module-template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/564874/199351042-d23059dd-b5a5-4c7a-9888-b5891730e8cc.gif" alt="Logo" width="100%">
   </a>
 
   <h3 align="center">Always Chat</h3>
@@ -23,34 +23,15 @@
 <details>
   <summary>Table of Contents</summary>
 	<ol>
-		<li><a href="#about-the-Module">About the Module</a></li>
-		<li><a href="#supported-Modules--Systems">Supported Modules / Systems</a></li>
+		<li><a href="#about-the-module">About the Module</a></li>
 		<li><a href="#license">License</a></li>
-		<li><a href="#acknowledgments">Acknowledgments</a></li>
 	</ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Module
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORTED MODULES/SYSTEMS -->
-## Supported Modules / Systems
-
+Always Chat allows you to have to option to have the chat always available to you, it doesn't matter if your on a different tab or even if the sidebar is collapsed you will always be able to see the chat.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -59,10 +40,6 @@ Use the `BLANK_README.md` to get started.
 Distributed under the MIT License. See [LICENSE]([license-url]) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
