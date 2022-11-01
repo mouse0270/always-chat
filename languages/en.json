@@ -7,7 +7,7 @@
 			"showChatWhenCollapsed.name": "Show Chat when Collapsed",
 			"showChatWhenCollapsed.hint": "When enabled the chat will always be displayed when the sidebar is collapsed.",
 			"numberOfMessagesToDisplay.name": "Number of Messages to Show",
-			"showChatWhenCollapsed.hint": "You can adjust this setting to adjust the number of messages shown. Setting this to 0 will allow 999 messages to be shown. Please note that there is no scroll bar and you wont be able to interact with messages that excide the height of your browser.",
+			"numberOfMessagesToDisplay.hint": "You can adjust this setting to adjust the number of messages shown. Setting this to 0 will allow 999 messages to be shown. Please note that there is no scroll bar and you wont be able to interact with messages that out of your browsers height.",
 			"inactiveScale.name": "Scale of Inactive Chat",
 			"inactiveScale.hint": "You can adjust the scale of the chat sidebar when its inactive to get it more out of the way.",
 			"inactiveOpacity.name": "Scale of Opacity Chat",
