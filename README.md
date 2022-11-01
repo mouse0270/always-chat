@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mouse0270/mouses-module-template">
+  <a href="https://github.com/mouse0270/always-chat">
     <img src="https://user-images.githubusercontent.com/564874/199351042-d23059dd-b5a5-4c7a-9888-b5891730e8cc.gif" alt="Logo" width="100%">
   </a>
 
@@ -43,16 +43,16 @@ Distributed under the MIT License. See [LICENSE]([license-url]) for more informa
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-url]: https://github.com/mouse0270/mouses-module-template/blob/master/LICENSE
+[license-url]: https://github.com/mouse0270/always-chat/blob/master/LICENSE
 
-[forge-installs]: https://img.shields.io/badge/dynamic/json?&colorB=90A959&label=Forge%20Installs&query=package.installs&suffix=%25&style=for-the-badge&url=https://forge-vtt.com/api/bazaar/package/mouses-module-template
-[forge-url]: https://forge-vtt.com/bazaar/package/mouses-module-template
+[forge-installs]: https://img.shields.io/badge/dynamic/json?&colorB=90A959&label=Forge%20Installs&query=package.installs&suffix=%25&style=for-the-badge&url=https://forge-vtt.com/api/bazaar/package/always-chat
+[forge-url]: https://forge-vtt.com/bazaar/package/always-chat
 
-[latest-download]: https://img.shields.io/github/downloads/mouse0270/mouses-module-template/latest/module.zip?color=5D4A66&label=DOWNLOADS&style=for-the-badge
-[latest-download-url]: https://github.com/mouse0270/mouses-module-template/releases/latest
+[latest-download]: https://img.shields.io/github/downloads/mouse0270/always-chat/latest/module.zip?color=5D4A66&label=DOWNLOADS&style=for-the-badge
+[latest-download-url]: https://github.com/mouse0270/always-chat/releases/latest
 
-[github-starts]: https://img.shields.io/github/stars/mouse0270/mouses-module-template?logo=AddThis&logoColor=white&style=for-the-badge
-[github-url]: https://github.com/mouse0270/mouses-module-template
+[github-starts]: https://img.shields.io/github/stars/mouse0270/always-chat?logo=AddThis&logoColor=white&style=for-the-badge
+[github-url]: https://github.com/mouse0270/always-chat
 
 [patreon]: https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&logo=Patreon&logoColor=white
 [patreon-url]: https://www.patreon.com/mouse0270
