@@ -12,6 +12,14 @@
 	90% { opacity: 1; }
 	100% { opacity: var(--always-chat-inactive-opacity); scale: 1; }
 }
+/* MOVE SIDEBAR BEHIND SCENE BROWSER */
+#ui-right { 
+	z-index: calc(var(--z-index-app) - 1);
+
+	&:hover {
+		z-index: calc(var(--z-index-app) + 1);
+	}
+}
 
 #sidebar {
 	&.collapsed {

@@ -1,8 +1,9 @@
 /* ADJUST SCENE BROWSER WIDTH */
-body:has(#sidebar section.chat-sidebar:not(.active)) #ui-top.offset {
-  margin-right: calc(var(--sidebar-width) * var(--always-chat-inactive-scale));
-}
-
+/*body:has(#sidebar section.chat-sidebar:not(.active)) {
+	#ui-top.offset {
+		margin-right: calc(var(--sidebar-width) * var(--always-chat-inactive-scale));
+	}
+}*/
 #sidebar section.chat-sidebar:not(.active) {
   display: -webkit-box;
   display: -ms-flexbox;

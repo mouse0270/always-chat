@@ -39,6 +39,14 @@
     scale: 1;
   }
 }
+/* MOVE SIDEBAR BEHIND SCENE BROWSER */
+#ui-right {
+  z-index: calc(var(--z-index-app) - 1);
+}
+#ui-right:hover {
+  z-index: calc(var(--z-index-app) + 1);
+}
+
 #sidebar.collapsed {
   --always-chat-position: 30px;
 }
