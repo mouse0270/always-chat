@@ -7,7 +7,7 @@ Hooks.once('setup', async () => {
 		if (value == 0) value = 999;
 		let styles = [];
 		if (MODULE.setting('showChatWhenNotActive')) {
-			styles.push(`#sidebar section.chat-sidebar:not(.active) #chat-log li:nth-last-of-type(-n+${value}) {
+			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
 				animation: alwaysChatAnimation 3s ease-in-out 1;
 				display: -ms-flexbox;
 				display: flex;
@@ -16,13 +16,14 @@ Hooks.once('setup', async () => {
 				pointer-events: all;
 				scale: 1;
 				transform-origin: right center;
+				transition: all 0.2s ease-in-out;
 			}`);
-			styles.push(`#sidebar section.chat-sidebar:not(.active) #chat-log li:nth-last-of-type(-n+${value}):hover {
+			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
 				opacity: 1;
 			}`);
 		}
 		if (MODULE.setting('showChatWhenCollapsed')) {
-			styles.push(`#sidebar.collapsed section.chat-sidebar #chat-log li:nth-last-of-type(-n+${value}) {
+			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
 				animation: alwaysChatAnimation 3s ease-in-out 1;
 				display: -ms-flexbox;
 				display: flex;
@@ -31,8 +32,9 @@ Hooks.once('setup', async () => {
 				pointer-events: all;
 				scale: 1;
 				transform-origin: right center;
+				transition: all 0.2s ease-in-out;
 			}`);
-			styles.push(`#sidebar.collapsed section.chat-sidebar #chat-log li:nth-last-of-type(-n+${value}):hover {
+			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
 				opacity: 1;
 			}`);
 		}
@@ -73,6 +75,21 @@ Hooks.once('setup', async () => {
 		default: true,
 		scope: 'client',
 		onChange: (value) => toggleStyleSheet(value, 'is-collapsed')
+	});
+	MODULE.setting('register', 'onlyShowNewMessages', {
+		type: Boolean,
+		default: true,
+		scope: 'client',
+		onChange: (value) => adjustDisplayedMessages(MODULE.setting('numberOfMessagesToDisplay'))
+	});
+	MODULE.setting('register', 'delayNewMessagesFadeOut', {
+		type: Number,
+		default: 10,
+		scope: 'client',
+		range: {
+			min: 0, max: 180, step: 1
+		},
+		onChange: adjustDisplayedMessages
 	});
 	MODULE.setting('register', 'numberOfMessagesToDisplay', {
 		type: Number,

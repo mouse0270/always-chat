@@ -4,10 +4,15 @@
 	"description": "A simple module that makes it so that the most recent chat messages are always visible even if you are on another tab or if chat is collapsed.",
 	"version": "1.0.0",
 	"compatibility": {
-		"minimum": 10,
+		"minimum": 9,
 		"verified": 10,
 		"maximum": 10
 	},
+
+	"name": "always-chat",
+	"minimumCoreVersion": 9,
+	"compatibleCoreVersion": 10,
+
 	"authors": [
 		{
 			"name": "Mouse0270",

@@ -1,7 +1,7 @@
 @import '_core';
 
 #sidebar {
-	&.collapsed section.chat-sidebar {
+	&.collapsed .sidebar-tab[data-tab="chat"] {
 		@include alwaysChat();
 	}
 }

@@ -25,4 +25,8 @@
 	&.collapsed {
 		--always-chat-position: 30px;
 	}
+
+	.sidebar-tab[data-tab="chat"] #chat-log .chat-message.always-chat-hide-message {
+		scale: 0 !important;
+	}
 }

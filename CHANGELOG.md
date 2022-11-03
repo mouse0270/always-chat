@@ -1,3 +1,10 @@
+# Version 1.0.1 - I only like you when your New.
+- Added setting to only show New Messages
+- Added setting to fade out New Messages after X seconds
+  - Setting to 0 will keep new messages until you reach your max number of messages show setting
+- Added support for v9 of Foundry
+  - Foundry v9 Support is limited support. I do not run an active v9 environment and make no promises that you won't experience issues.
+
 # Version 1.0.0 - Never Leave Me Alone
 This is the initial release of Always Chat. Always Chat allows you to have to option to have the chat always available to you, it doesn't matter if your on a different tab or even if the sidebar is collapsed you will always be able to see the chat. It comes withe the following Features
 - Pin Chat to the side of the Sidebar when its Not Active

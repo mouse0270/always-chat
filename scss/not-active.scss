@@ -8,7 +8,7 @@
 }*/
 
 #sidebar { 
-	section.chat-sidebar:not(.active) {
+	.sidebar-tab[data-tab="chat"]:not(.active) {
 		@include alwaysChat();
 	}
 }

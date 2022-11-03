@@ -19,7 +19,7 @@ export class MODULE {
 	}
 
 	static localize(stringId, data = {}) {
-		return foundry.utils.isEmpty(data.hash ?? {}) ? game.i18n.localize(`${this.ID}.${stringId}`) : game.i18n.format(`${this.ID}.${stringId}`, data);
+		return (foundry.utils?.isEmpty ?? foundry.utils?.isObjectEmpty)(data.hash ?? {}) ? game.i18n.localize(`${this.ID}.${stringId}`) : game.i18n.format(`${this.ID}.${stringId}`, data);
 	}
 
 	static CONSOLE = (LOG_LEVEL, ...args) => {
