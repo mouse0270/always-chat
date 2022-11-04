@@ -1,3 +1,5 @@
+import './libraries/EventDelegation.js';
+
 // GET MODULE FUNCTIONS
 import { MODULE } from './_module.mjs';
 
@@ -17,6 +19,12 @@ Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
 			4: 'INFO',
 			5: 'ALL'
 		}
+	});
+});
+
+Hooks.once('ready', async () => {
+	document.querySelectorAll('body').onEventListener('click, contextmenu', 'taskbar', (event) => {
+		MODULE.log('ACTUAL EVENT', event);
 	});
 });
 

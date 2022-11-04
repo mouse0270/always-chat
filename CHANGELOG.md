@@ -1,3 +1,9 @@
+# Version 1.0.2 - Forge VTT
+- Fixed an issue with `querySelector` when using Forge VTT
+- Fixed Context Menu when `right-click`ing chat messages
+- Added Setting to Position Chat to the Top Right or Bottom Right of the Sidebar.
+- Added Setting to Change the Direction of the Newest Chat from either Top or Bottom.
+
 # Version 1.0.1 - I only like you when your New.
 - Added setting to only show New Messages
 - Added setting to fade out New Messages after X seconds

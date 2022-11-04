@@ -7,7 +7,7 @@ Hooks.once('setup', async () => {
 		if (value == 0) value = 999;
 		let styles = [];
 		if (MODULE.setting('showChatWhenNotActive')) {
-			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
+			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log > li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
 				animation: alwaysChatAnimation 3s ease-in-out 1;
 				display: -ms-flexbox;
 				display: flex;
@@ -17,13 +17,15 @@ Hooks.once('setup', async () => {
 				scale: 1;
 				transform-origin: right center;
 				transition: all 0.2s ease-in-out;
+				z-index: 1;
 			}`);
-			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
+			styles.push(`#sidebar .sidebar-tab[data-tab="chat"]:not(.active) #chat-log > li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
 				opacity: 1;
+				z-index: 10;
 			}`);
 		}
 		if (MODULE.setting('showChatWhenCollapsed')) {
-			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
+			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log > li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}) {
 				animation: alwaysChatAnimation 3s ease-in-out 1;
 				display: -ms-flexbox;
 				display: flex;
@@ -33,9 +35,11 @@ Hooks.once('setup', async () => {
 				scale: 1;
 				transform-origin: right center;
 				transition: all 0.2s ease-in-out;
+				z-index: 1;
 			}`);
-			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
+			styles.push(`#sidebar.collapsed .sidebar-tab[data-tab="chat"] #chat-log > li${MODULE.setting('onlyShowNewMessages') ? '.always-chat-new-message' : ''}:nth-last-of-type(-n+${value}):hover {
 				opacity: 1;
+				z-index: 10;
 			}`);
 		}
 
@@ -49,12 +53,15 @@ Hooks.once('setup', async () => {
 			:root{
 				--always-chat-inactive-scale: ${MODULE.setting('inactiveScale')};
 				--always-chat-inactive-opacity: ${MODULE.setting('inactiveOpacity')};
+				--always-chat-direction: ${MODULE.setting('chatDirection')};
 			}
 		</style>`);
+
+		document.querySelector('#sidebar .sidebar-tab[data-tab="chat"]')?.setAttribute('data-pin', MODULE.setting('chatPosition')) ?? false;
 	}
 
 	const toggleStyleSheet = (value, stylesheet) => {
-		const primaryStyleSheet = document.querySelector(`head link[href^="modules/${MODULE.ID}/"]`);
+		const primaryStyleSheet = document.querySelector(`head link[href*="modules/${MODULE.ID}/"]`);
 
 		if (value) {
 			if (document.querySelector(`head link[name="${MODULE.ID}-${stylesheet}"]`) ?? false) return;
@@ -118,9 +125,36 @@ Hooks.once('setup', async () => {
 		},
 		onChange: adjustCSSVariables
 	});
+	MODULE.setting('register', 'chatPosition', {
+		type: String,
+		default: 'top-right',
+		scope: 'client',
+		choices: {
+			'bottom-right': `${MODULE.ID}.settings.chatPosition.choices.bottomRight`,
+			'top-right': `${MODULE.ID}.settings.chatPosition.choices.topRight`,
+		},
+		onChange: adjustCSSVariables
+	});
+	MODULE.setting('register', 'chatDirection', {
+		type: String,
+		default: 'column-reverse',
+		scope: 'client',
+		choices: {
+			'column': `${MODULE.ID}.settings.chatDirection.choices.bottom`,
+			'column-reverse': `${MODULE.ID}.settings.chatDirection.choices.top`,
+		},
+		onChange: adjustCSSVariables
+	});
 
 	toggleStyleSheet(MODULE.setting('showChatWhenNotActive'), 'not-active');
 	toggleStyleSheet(MODULE.setting('showChatWhenCollapsed'), 'is-collapsed');
 	adjustDisplayedMessages(MODULE.setting('numberOfMessagesToDisplay'));
 	adjustCSSVariables();
+
+	
+	// Pin Chat After Sidebar is Registered
+	Hooks.on('renderSidebarTab', (app, elem, options) => {
+		if (!(app.id === 'chat')) return;
+		elem[0]?.setAttribute('data-pin', MODULE.setting('chatPosition'));
+	})
 });

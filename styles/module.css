@@ -2,6 +2,7 @@
   --always-chat-inactive-scale: 0.6;
   --always-chat-inactive-opacity: 0.1;
   --always-chat-position: var(--sidebar-width);
+  --always-chat-direction: column-reverse;
 }
 
 @-webkit-keyframes alwaysChatAnimation {

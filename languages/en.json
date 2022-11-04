@@ -15,7 +15,23 @@
 			"inactiveScale.name": "Scale of Inactive Chat",
 			"inactiveScale.hint": "You can adjust the scale of the chat sidebar when its inactive to get it more out of the way.",
 			"inactiveOpacity.name": "Scale of Opacity Chat",
-			"inactiveOpacity.hint": "You can adjust the opacity of the chat messages when they are not hovered over."
+			"inactiveOpacity.hint": "You can adjust the opacity of the chat messages when they are not hovered over.",
+			"chatPosition": {
+				"name": "Pin the Chat To",
+				"hint": "You can set if you would like the chat to be pinned to the top or bottom right of the sidebar.",
+				"choices": {
+					"bottomRight": "Bottom Right",
+					"topRight": "Top Right"
+				}
+			},
+			"chatDirection": {
+				"name": "Newest Chat Message",
+				"hint": "You can set if you would like the newest chat message to be on the top or bottom of the list.",
+				"choices": {
+					"bottom": "Bottom",
+					"top": "Top"
+				}
+			}
 		}
 	}
 }

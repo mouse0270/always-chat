@@ -11,4 +11,8 @@
 	.sidebar-tab[data-tab="chat"]:not(.active) {
 		@include alwaysChat();
 	}
+	.sidebar-tab[data-tab="chat"][data-pin="bottom-right"]:not(.active) {
+		bottom: 0px;
+		transform-origin: bottom right;
+	}
 }

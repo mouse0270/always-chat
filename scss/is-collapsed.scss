@@ -4,4 +4,9 @@
 	&.collapsed .sidebar-tab[data-tab="chat"] {
 		@include alwaysChat();
 	}
+	&.collapsed .sidebar-tab[data-tab="chat"][data-pin="bottom-right"] {
+		bottom: 0px;
+		right: 8px;
+		transform-origin: bottom right;
+	}
 }
