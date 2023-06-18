@@ -5,8 +5,7 @@
 	"version": "1.0.0",
 	"compatibility": {
 		"minimum": 9,
-		"verified": 10,
-		"maximum": 10
+		"verified": 11
 	},
 
 	"name": "always-chat",

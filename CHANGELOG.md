@@ -1,3 +1,7 @@
+# Version 1.0.3 - I'm not dead yet
+- Removed Max Version from package manifest
+- Updated Verified for v11
+
 # Version 1.0.2 - Forge VTT
 - Fixed an issue with `querySelector` when using Forge VTT
 - Fixed Context Menu when `right-click`ing chat messages
